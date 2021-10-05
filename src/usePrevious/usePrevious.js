@@ -1,0 +1,17 @@
+import React, { useRef } from 'react'
+
+//hooks to get previous value of a state
+
+function usePrevious(value) {
+    const currentRef = useRef(value)
+    const previousRef = useRef()
+
+    if(currentRef.current !== value) {
+        previousRef.current = currentRef.current
+        currentRef.current = value
+    }
+
+    return previousRef.current
+}
+
+export default usePrevious
